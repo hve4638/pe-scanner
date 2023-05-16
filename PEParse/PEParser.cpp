@@ -44,7 +44,7 @@ namespace PEParse {
         }
 
         if (m_peReader->open(pid, pfilePath)) {
-            if (parseDosHeader() && parseNtHeader()) {
+            if (checkValidation() && parseDosHeader() && parseNtHeader()) {
                 parseSectionHeader();
                 parseDataDirectory();
                 parseEAT();

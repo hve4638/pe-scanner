@@ -1,11 +1,11 @@
-#include "RunnableLambda.h"
+#include "RunnableBasic.h"
 
 namespace CommandLineUtils {
-    RunnableLambda::RunnableLambda(CommandLambda call) {
+    RunnableBasic::RunnableBasic(CommandLambda call) {
         m_call = call;
     }
 
-    BOOL RunnableLambda::run(shared_ptr<IArgs> args) {
+    BOOL RunnableBasic::run(vector<tstring> args, ArgsAdditional additional) {
         m_call(args);
 
         return TRUE;

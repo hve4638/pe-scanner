@@ -38,4 +38,11 @@ namespace CommandLineUtils {
         return isValidIndex(this->m_current - 1);
     }
 
+    int TCharArgs::offset() {
+        return m_current;
+    }
+
+    IArgsPtr TCharArgs::copy() {
+        return make_shared<TCharArgs>(*this);
+    }
 }

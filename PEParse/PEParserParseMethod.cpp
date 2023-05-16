@@ -9,6 +9,10 @@ using namespace std;
 using namespace PEUtils;
 
 namespace PEParse {
+    BOOL PEParser::checkValidation() {
+        return m_peReader->checkValidation();
+    }
+
     BOOL PEParser::parseDosHeader() {
         if (m_peReader->readData(0x0, &m_peStruct->dosHeader, sizeof(IMAGE_DOS_HEADER)) < 0) {
             m_logger << LogLevel::ERR;

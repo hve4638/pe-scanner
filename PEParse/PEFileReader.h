@@ -25,6 +25,8 @@ namespace PEParse {
         struct RAWInfo m_rawInfo;
         struct SectionInfo m_sectionInfo;
 
+        LONGLONG m_fileSize;
+
         BOOL setRvaToRawInfo(QWORD rav);
         QWORD rvaToRaw(QWORD rav, QWORD addPosition);
         void updateSectionInfo();
@@ -38,6 +40,7 @@ namespace PEParse {
         void close() override;
         LPVOID getBaseAddress() override;
         QWORD getRAW(QWORD rva) override;
+        BOOL checkValidation() override;
         tstring getFilePath() override;
         tstring getPEString(QWORD rva) override;
         tstring getPEStringNoBase(QWORD rva) override;

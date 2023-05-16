@@ -18,9 +18,13 @@ namespace PEParse {
         if (m_fileMapping != NULL) {
             UnmapViewOfFile(m_baseAddress);
             CloseHandle(m_fileMapping);
+
+            m_fileMapping = NULL;
         }
         if (m_fileHandle != NULL) {
             CloseHandle(m_fileHandle);
+            
+            m_fileHandle = NULL;
         }
         m_baseAddress = NULL;   
 	}
@@ -30,15 +34,13 @@ namespace PEParse {
     }
 
 	BOOL PEFileReader::open(const TCHAR* filePath) {
-        /*
-            파일을 열고 메모리에 매핑한다.
-            모든 과정이 성공시 TRUE를 리턴하고, 실패시 과정 중 연 핸들을 정리하고 FALSE를 리턴한다.
-        */
+        // 파일을 열고 메모리에 매핑한다.
+        // 모든 과정이 성공시 TRUE를 리턴하고, 실패시 과정 중 연 핸들을 정리하고 FALSE를 리턴한다.
         if (filePath == NULL) {
             return FALSE;
         }
-        close();
 
+        close(); // 초기화
         m_filePath = filePath;
         m_logger << LogLevel::DEBUG;
         m_logger << format(_T("Create memory map : {:s}"), m_filePath) << NL;
@@ -51,22 +53,27 @@ namespace PEParse {
             return FALSE;
         }
 
+        LARGE_INTEGER fileSize;
+        if (!GetFileSizeEx(m_fileHandle, &fileSize)) {
+            close();
+
+            m_logger << LogLevel::ERR;
+            m_logger << ErrorLogInfo(_T("Error: Cannot read file size")) << NL;
+            return FALSE;
+        }
+        m_fileSize = fileSize.QuadPart;
+
         m_fileMapping = CreateFileMapping(m_fileHandle, NULL, PAGE_READONLY, 0, 0, NULL);
         if (m_fileMapping == NULL) {
-            CloseHandle(m_fileHandle);
-            m_fileHandle = NULL;
+            close();
 
             m_logger << LogLevel::ERR;
             m_logger << ErrorLogInfo(_T("Error: Cannot create file mapping")) << NL;
             return FALSE;
         }
-
         m_baseAddress = reinterpret_cast<BYTE*>(MapViewOfFile(m_fileMapping, FILE_MAP_READ, 0, 0, 0));
         if (m_baseAddress == NULL) {
-            CloseHandle(m_fileMapping);
-            CloseHandle(m_fileHandle);
-            m_fileMapping = NULL;
-            m_fileHandle = NULL;
+            close();
 
             m_logger << LogLevel::ERR;
             m_logger << ErrorLogInfo(_T("Error: Cannot map view of file")) << NL;
@@ -82,6 +89,17 @@ namespace PEParse {
 
 	tstring PEFileReader::getFilePath() {
         return m_filePath;
+    }
+
+    BOOL PEFileReader::checkValidation() {
+        if (sizeof(IMAGE_DOS_HEADER) > m_fileSize) {
+            return TRUE;
+        }
+        else {
+            m_logger << LogLevel::DEBUG;
+            m_logger << ErrorLogInfo(_T("validation check failed")) << NL;
+            return FALSE;
+        }
     }
 
     tstring PEFileReader::getPEString(QWORD rva) {

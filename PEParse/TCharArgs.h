@@ -15,5 +15,7 @@ namespace CommandLineUtils {
         BOOL hasNext() override;
         tstring previous() override;
         BOOL hasPrevious() override;
+        int offset() override;
+        IArgsPtr copy() override;
     };
 }

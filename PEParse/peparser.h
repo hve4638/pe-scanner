@@ -12,6 +12,7 @@ namespace PEParse {
         Logger m_logger = { LogDirection::DEBUGVIEW, LogLevel::ALL };
 
         tstring getString(const char* srcString, size_t srcLength);
+        BOOL checkValidation();
         BOOL parseDosHeader();
         BOOL parseNtHeader();
         BOOL parseSectionHeader();

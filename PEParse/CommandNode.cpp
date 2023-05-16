@@ -14,7 +14,7 @@ namespace CommandLineUtils {
         m_selfPtr = ptr;
     }
 
-    weak_ptr<ICommandNode> CommandNode::findNodeForcefully(IArgsPtr args) {
+    shared_ptr<ICommandNode> CommandNode::findNodeForcefully(IArgsPtr args) {
         if (args->hasNext()) {
             auto key = args->next();
             if (!m_children.contains(key)) {
@@ -30,9 +30,10 @@ namespace CommandLineUtils {
         }
     }
 
-    BOOL CommandNode::run(IArgsPtr args) {
+    BOOL CommandNode::run(vector<tstring> args, ArgsAdditional additional) {
         if (isRunnable()) {
-            m_runnable->run(args); 
+            vector<tstring> targs;
+            m_runnable->run(args, additional);
             return TRUE;
         }
         else {
@@ -48,7 +49,7 @@ namespace CommandLineUtils {
         m_runnable = runnable;
     }
 
-    weak_ptr<ICommandNode> CommandNode::findNode(IArgsPtr args) {
+    shared_ptr<ICommandNode> CommandNode::findNode(IArgsPtr args) {
         if (args->hasNext()) {
             auto key = args->next();
             if (m_children.contains(key)) {
@@ -62,8 +63,8 @@ namespace CommandLineUtils {
         return getPtr();
     }
 
-    weak_ptr<ICommandNode> CommandNode::getPtr() {
-        return m_selfPtr;
+    shared_ptr<ICommandNode> CommandNode::getPtr() {
+        return m_selfPtr.lock();
     }
 
     void CommandNode::setPtr(weak_ptr<ICommandNode> wkPtr) {

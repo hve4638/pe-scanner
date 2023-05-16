@@ -27,6 +27,7 @@ namespace PEParse {
         BOOL open(DWORD pid, const TCHAR* pfilePath) override;
         tstring getPEString(QWORD rva) override;
         tstring getPEStringNoBase(QWORD rva) override;
+        BOOL checkValidation() override;
         SSIZE_T readData(QWORD rva, LPVOID bufferAddress, SIZE_T bufferSize) override;
         SSIZE_T readDataNoBase(QWORD rva, LPVOID bufferAddress, SIZE_T bufferSize) override;
         LPVOID getBaseAddress() override;

@@ -3,7 +3,7 @@
 #include "IRunnable.h"
 
 namespace CommandLineUtils {
-    typedef function<void(shared_ptr<IArgs>)> CommandLambda;
+    typedef function<void(vector<tstring>)> CommandLambda;
 
     interface IRunnableLambda : public virtual IRunnable {
         virtual ~IRunnableLambda() {};

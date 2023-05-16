@@ -131,9 +131,14 @@
     <ClCompile Include="CommandLineParser.cpp" />
     <ClCompile Include="CommandNode.cpp" />
     <ClCompile Include="ErrorLogInfo.cpp" />
+    <ClCompile Include="FileUtil.cpp" />
     <ClCompile Include="HashMD5Utils.cpp" />
     <ClCompile Include="HashMD5Utils.h" />
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="Options.cpp" />
+    <ClCompile Include="PETests.cpp" />
+    <ClCompile Include="RegUtil.cpp" />
+    <ClCompile Include="RegUtilPrivate.cpp" />
     <ClCompile Include="RunnableLambda.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PECommandLineParser.cpp" />
@@ -148,6 +153,7 @@
     <ClCompile Include="PEProcessReaderPrivate.cpp" />
     <ClCompile Include="PEUtils.cpp" />
     <ClCompile Include="ReserveDelete.cpp" />
+    <ClCompile Include="RunnableWithOptions.cpp" />
     <ClCompile Include="TCharArgs.cpp" />
     <ClCompile Include="TStringArgs.cpp" />
     <ClCompile Include="TStringArgs.h" />
@@ -155,17 +161,24 @@
   <ItemGroup>
     <ClInclude Include="CommandNode.h" />
     <ClInclude Include="CommandLineParser.h" />
+    <ClInclude Include="CommandAddition.h" />
+    <ClInclude Include="FileUtil.h" />
     <ClInclude Include="ICommandNode.h" />
     <ClInclude Include="ICommandLineParser.h" />
     <ClInclude Include="IHashUtils.h" />
-    <ClInclude Include="IRunnableLambda.h" />
+    <ClInclude Include="IOptions.h" />
+    <ClInclude Include="IRunnableBasic.h" />
     <ClInclude Include="ILogger.h" />
     <ClInclude Include="IPEParser.h" />
     <ClInclude Include="IArgs.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="ErrorLogInfo.h" />
     <ClInclude Include="LogNL.h" />
-    <ClInclude Include="RunnableLambda.h" />
+    <ClInclude Include="Options.h" />
+    <ClInclude Include="PETests.h" />
+    <ClInclude Include="RegInfo.h" />
+    <ClInclude Include="RegUtil.h" />
+    <ClInclude Include="RunnableBasic.h" />
     <ClInclude Include="LogDirection.h" />
     <ClInclude Include="LogLevel.h" />
     <ClInclude Include="PECommandLineParser.h" />
@@ -176,9 +189,11 @@
     <ClInclude Include="IPEReader.h" />
     <ClInclude Include="ReserveDelete.h" />
     <ClInclude Include="IRunnable.h" />
+    <ClInclude Include="RunnableExtend.h" />
     <ClInclude Include="TCharArgs.h" />
     <ClInclude Include="typedef.h" />
     <ClInclude Include="PEParser.h" />
+    <ClInclude Include="ArgsAdditional.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

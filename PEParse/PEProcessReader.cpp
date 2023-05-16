@@ -74,6 +74,12 @@ namespace PEParse {
         return m_peFilePath;
     };
 
+    BOOL PEProcessReader::checkValidation() {
+        // 프로세스가 올라왔다는건 정상적인 PE라는 의미
+        // 난독화는 고려하지 않음
+        return TRUE;
+    }
+
     tstring PEProcessReader::getPEString(ULONGLONG rva) {
         BYTE bytes[2] = { 0, };
         ULONGLONG offset = rva;

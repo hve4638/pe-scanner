@@ -73,4 +73,22 @@ namespace CommandLineUtils {
     inline BOOL TStringArgs::isValidIndex(int index) {
         return (0 <= index && index < m_argc);
     }
+
+    int TStringArgs::offset() {
+        return m_current;
+    }
+
+    IArgsPtr TStringArgs::copy() {
+        return make_shared<TStringArgs>(*this);
+    }
 }
+
+
+
+
+
+
+
+
+
+

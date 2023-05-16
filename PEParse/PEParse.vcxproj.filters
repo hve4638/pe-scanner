@@ -43,6 +43,12 @@
     <Filter Include="소스 파일\Logger">
       <UniqueIdentifier>{7bc8a26c-5b3f-453f-b466-443945d72dfe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\RegUtils">
+      <UniqueIdentifier>{51428aff-4e2c-4028-a337-640ec5c26aa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\RegUtils">
+      <UniqueIdentifier>{4e7f78db-0155-4853-b6b0-2cdb1160d340}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,6 +120,24 @@
     <ClCompile Include="ErrorLogInfo.cpp">
       <Filter>소스 파일\Logger</Filter>
     </ClCompile>
+    <ClCompile Include="RunnableWithOptions.cpp">
+      <Filter>소스 파일\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Options.cpp">
+      <Filter>소스 파일\Args</Filter>
+    </ClCompile>
+    <ClCompile Include="FileUtil.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PETests.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RegUtil.cpp">
+      <Filter>소스 파일\RegUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="RegUtilPrivate.cpp">
+      <Filter>소스 파일\RegUtils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="typedef.h">
@@ -149,10 +173,10 @@
     <ClInclude Include="TCharArgs.h">
       <Filter>헤더 파일\Args</Filter>
     </ClInclude>
-    <ClInclude Include="RunnableLambda.h">
+    <ClInclude Include="RunnableBasic.h">
       <Filter>헤더 파일\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="IRunnableLambda.h">
+    <ClInclude Include="IRunnableBasic.h">
       <Filter>헤더 파일\Commands</Filter>
     </ClInclude>
     <ClInclude Include="IPEReader.h">
@@ -193,6 +217,33 @@
     </ClInclude>
     <ClInclude Include="ErrorLogInfo.h">
       <Filter>헤더 파일\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandAddition.h">
+      <Filter>헤더 파일\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="RunnableExtend.h">
+      <Filter>헤더 파일\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="IOptions.h">
+      <Filter>헤더 파일\Args</Filter>
+    </ClInclude>
+    <ClInclude Include="Options.h">
+      <Filter>헤더 파일\Args</Filter>
+    </ClInclude>
+    <ClInclude Include="ArgsAdditional.h">
+      <Filter>헤더 파일\Args</Filter>
+    </ClInclude>
+    <ClInclude Include="FileUtil.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PETests.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RegUtil.h">
+      <Filter>헤더 파일\RegUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="RegInfo.h">
+      <Filter>헤더 파일\RegUtils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

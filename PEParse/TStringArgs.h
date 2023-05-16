@@ -27,6 +27,8 @@ namespace CommandLineUtils {
         BOOL hasNext() override;
         tstring previous() override;
         BOOL hasPrevious() override;
+        IArgsPtr copy() override;
+        int offset() override;
     };
 
     extern shared_ptr<TStringArgs> makeArgs(tstring);

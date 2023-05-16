@@ -17,11 +17,11 @@ namespace CommandLineUtils {
         static ICommandNodePtr make();
 
         CommandNode(ICommandNodePtr&);
-        BOOL run(IArgsPtr) override;
-        BOOL isRunnable() override; 
-        weak_ptr<ICommandNode> findNodeForcefully(IArgsPtr) override;
+        BOOL run(vector<tstring>, ArgsAdditional) override;
+        BOOL isRunnable() override;
         void setRunnable(shared_ptr<IRunnable> runnable) override;
-        weak_ptr<ICommandNode> findNode(IArgsPtr) override;
-        weak_ptr<ICommandNode> getPtr() override;
+        shared_ptr<ICommandNode> findNodeForcefully(IArgsPtr) override;
+        shared_ptr<ICommandNode> findNode(IArgsPtr) override;
+        shared_ptr<ICommandNode> getPtr() override;
     };
 }

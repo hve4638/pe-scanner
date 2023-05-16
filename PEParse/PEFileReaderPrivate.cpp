@@ -22,7 +22,7 @@ namespace PEParse {
             // rvaToRaw를 위한 정보를 업데이트
             updateSectionInfo();
         }
-        
+
         // rva 주소가 PEHeader 부분일 경우
         // PEHeader의 rva은 raw와 동일
         if (rva < m_sectionInfo.sizeOfHeaders) {
@@ -46,6 +46,12 @@ namespace PEParse {
     void PEFileReader::updateSectionInfo() {
         IMAGE_NT_HEADERS32* pNtHeader32 = reinterpret_cast<IMAGE_NT_HEADERS32*>(m_baseAddress + (LONG)((IMAGE_DOS_HEADER*)m_baseAddress)->e_lfanew);
 
+        if (pNtHeader32->Signature != IMAGE_NT_SIGNATURE) {
+            m_sectionInfo.sizeOfHeaders = 0;
+            m_sectionInfo.numberOfSections = 0;
+            m_sectionInfo.headerAddress = NULL;
+            return;
+        }
         if (pNtHeader32->FileHeader.Machine == IMAGE_FILE_MACHINE_AMD64) {
             IMAGE_NT_HEADERS64* pNtHeader64 = reinterpret_cast<IMAGE_NT_HEADERS64*>(m_baseAddress + (LONG)((IMAGE_DOS_HEADER*)m_baseAddress)->e_lfanew);
             

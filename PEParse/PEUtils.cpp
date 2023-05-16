@@ -17,11 +17,11 @@ namespace PEUtils {
         else {
             int bufferLen = MultiByteToWideChar(CP_UTF8, 0, reinterpret_cast<LPCCH>(source.data()), -1, NULL, 0);
 
-            auto buffer = make_shared<TCHAR>(bufferLen);
-            //TCHAR* readBuffer = new TCHAR[bufferLen];
+            TCHAR* buffer = new TCHAR[bufferLen];
             
-            MultiByteToWideChar(CP_UTF8, 0, reinterpret_cast<LPCCH>(source.data()), -1, buffer.get(), bufferLen);
-            dest = buffer.get();
+            MultiByteToWideChar(CP_UTF8, 0, reinterpret_cast<LPCCH>(source.data()), -1, buffer, bufferLen);
+            dest = buffer;
+            delete[] buffer;
         }
 
         return dest;
@@ -79,5 +79,9 @@ namespace PEUtils {
             tokens.push_back(temp);
         }
         return tokens;
+    }
+
+    void LargeInteger2QWORD(LARGE_INTEGER& large, QWORD& qword) {
+
     }
 }
