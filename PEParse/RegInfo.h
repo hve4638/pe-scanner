@@ -18,9 +18,9 @@ namespace RegUtils {
     };
 
     struct RegPathInfo {
-        tstring name;
-        tstring value;
-        RegRootKey key;
+        tstring keyName;
+        tstring valueName;
+        RegRootKey rootKey;
     };
 
     // 바이너리 데이터 저장을 위한 형식 정의
@@ -28,7 +28,7 @@ namespace RegUtils {
 
     struct RegValue {
         DWORD valueType;
-        BinaryData value;
+        BinaryData data;
     };
 
     // 레지스트리에 존재하는 파일 경로를 추출하여 저장하기 위한 형식 정의 (파일 경로, (레지스트리 Key 이름, 레지스트리 Value 이름, 레지스트리 루트 키))

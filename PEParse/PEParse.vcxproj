@@ -139,6 +139,7 @@
     <ClCompile Include="PETests.cpp" />
     <ClCompile Include="RegUtil.cpp" />
     <ClCompile Include="RegUtilPrivate.cpp" />
+    <ClCompile Include="ReserveCloseRegKey.cpp" />
     <ClCompile Include="RunnableLambda.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PECommandLineParser.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="PETests.h" />
     <ClInclude Include="RegInfo.h" />
     <ClInclude Include="RegUtil.h" />
+    <ClInclude Include="ReserveCloseRegKey.h" />
     <ClInclude Include="RunnableBasic.h" />
     <ClInclude Include="LogDirection.h" />
     <ClInclude Include="LogLevel.h" />

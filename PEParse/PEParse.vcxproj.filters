@@ -49,15 +49,18 @@
     <Filter Include="소스 파일\RegUtils">
       <UniqueIdentifier>{4e7f78db-0155-4853-b6b0-2cdb1160d340}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\ReserveFree">
+      <UniqueIdentifier>{9663439b-8fb6-4dd0-9841-b3ade532eb8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\ReserveFree">
+      <UniqueIdentifier>{2b49b80e-503d-49e0-bd71-81330dd2e1cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="PEUtils.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ReserveDelete.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="HashMD5Utils.h">
@@ -138,15 +141,18 @@
     <ClCompile Include="RegUtilPrivate.cpp">
       <Filter>소스 파일\RegUtils</Filter>
     </ClCompile>
+    <ClCompile Include="ReserveDelete.cpp">
+      <Filter>소스 파일\ReserveFree</Filter>
+    </ClCompile>
+    <ClCompile Include="ReserveCloseRegKey.cpp">
+      <Filter>소스 파일\ReserveFree</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="typedef.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="PEUtils.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ReserveDelete.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="ICommandLineParser.h">
@@ -244,6 +250,12 @@
     </ClInclude>
     <ClInclude Include="RegInfo.h">
       <Filter>헤더 파일\RegUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="ReserveDelete.h">
+      <Filter>헤더 파일\ReserveFree</Filter>
+    </ClInclude>
+    <ClInclude Include="ReserveCloseRegKey.h">
+      <Filter>헤더 파일\ReserveFree</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

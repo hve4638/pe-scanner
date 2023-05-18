@@ -10,7 +10,8 @@ namespace RegUtils {
     class RegUtil {
         Logger m_logger = { LogLevel::ALL, LogDirection::DEBUGVIEW };
 
-        RegFileInfo getFileInfo(RegPathInfo& regPathList);
+        //RegFileInfo getFileInfo(RegPathInfo& regPathList);
+        SIZE_T addRegFiles(const RegPathInfo& regPath, vector<RegFileInfo>& regFiles);
     public:
         RegUtil();
         ~RegUtil();
