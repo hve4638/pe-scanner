@@ -7,16 +7,16 @@
 using namespace LogUtils;
 
 namespace RegUtils {
+    using namespace RegInfo;
+
     class RegUtil {
         Logger m_logger = { LogLevel::ALL, LogDirection::DEBUGVIEW };
 
-        //RegFileInfo getFileInfo(RegPathInfo& regPathList);
-        SIZE_T addRegFiles(const RegPathInfo& regPath, vector<RegFileInfo>& regFiles);
     public:
         RegUtil();
         ~RegUtil();
         BOOL getRegValue(RegRootKey regRootKey, tstring keyName, tstring valueName, RegValue& regValue);
-        BOOL getRegFileList(IN vector<RegPathInfo>& regPathList, OUT vector<RegFileInfo>& regFileList);
+        BOOL getRegFileList(RegPathList& regPathList, RegFileList& regFileList);
         BOOL setRegValue(RegRootKey regRootKey, tstring keyName, tstring valueName, RegValue& regValue, BOOL removeExistValue = FALSE, BOOL createKey = FALSE);
         BOOL deleteRegKey(RegRootKey regRootKey, tstring keyName);
         BOOL deleteRegValue(RegRootKey regRootKey, tstring keyName, tstring valueName);

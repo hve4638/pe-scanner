@@ -22,6 +22,10 @@ namespace LogUtils {
         ILogger& operator<<(LogLevel) override;
         ILogger& operator<<(LogDirection) override;
         ILogger& operator<<(const ErrorLogInfo&) override;
+
+
+        // È£È¯¼º
+        void log(const TCHAR* logMessage, DWORD errorCode, LogLevel logLevel);
     };
 }
 

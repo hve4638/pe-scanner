@@ -1,15 +1,38 @@
 #pragma once
+#include <format>
 #include "PETests.h"
 #include "Logger.h"
 #include "PECommandLineParser.h"
 #include "PEParser.h"
 #include "PEPrinter.h"
 #include "FileUtil.h"
+#include "RegUtil.h"
 
 using namespace CommandLineUtils;
 using namespace PEParse;
 using namespace PELog;
 using namespace LogUtils;
+using namespace RegUtils;
+using namespace RegInfo;
+
+void testReg() {
+    RegPathList regPathList;
+    RegFileList regFileList;
+    Logger logger = { LogLevel::DEBUG, LogDirection::CONSOLE };
+    RegUtil regUtil;
+
+    logger << LogLevel::DEBUG;
+
+    regPathList.push_back(make_tuple(_T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"), _T(""), REG_HKEY_LOCAL_MACHINE));
+
+    regUtil.getRegFileList(regPathList, regFileList);
+    for (auto const& element : regFileList)
+    {
+        ULONGLONG regkey = get<2>(get<1>(element));
+        logger << format(_T("Reg value : {:s}\n  {:s}, {:s}, {:x}"), get<0>(element), get<0>(get<1>(element)), get<1>(get<1>(element)), regkey);
+        logger << NL;
+    }
+}
 
 void testLogging() {
     // 모든 레벨의 로그를 CONSOLE로 출력하는 logger 생성

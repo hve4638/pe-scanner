@@ -44,8 +44,9 @@ void runInteractive() {
 
 int _tmain(int argc, TCHAR* argv[]) {
     setlocale(LC_ALL, "");
+    testReg();
     //testPrint();
-    testFileScan();
+    //testFileScan();
     return 0;
 
     if (argc == 1) {

@@ -55,6 +55,12 @@
     <Filter Include="소스 파일\ReserveFree">
       <UniqueIdentifier>{2b49b80e-503d-49e0-bd71-81330dd2e1cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Watch">
+      <UniqueIdentifier>{5cd9baa8-147b-4380-8288-a2693ea642ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Watch">
+      <UniqueIdentifier>{c2157dd8-75ec-4776-b0f1-75a0450d3e1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -138,14 +144,17 @@
     <ClCompile Include="RegUtil.cpp">
       <Filter>소스 파일\RegUtils</Filter>
     </ClCompile>
-    <ClCompile Include="RegUtilPrivate.cpp">
-      <Filter>소스 파일\RegUtils</Filter>
-    </ClCompile>
     <ClCompile Include="ReserveDelete.cpp">
       <Filter>소스 파일\ReserveFree</Filter>
     </ClCompile>
     <ClCompile Include="ReserveCloseRegKey.cpp">
       <Filter>소스 파일\ReserveFree</Filter>
+    </ClCompile>
+    <ClCompile Include="RegWatch.cpp">
+      <Filter>소스 파일\Watch</Filter>
+    </ClCompile>
+    <ClCompile Include="LoggerCompatibility.cpp">
+      <Filter>소스 파일\Logger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -248,14 +257,20 @@
     <ClInclude Include="RegUtil.h">
       <Filter>헤더 파일\RegUtils</Filter>
     </ClInclude>
-    <ClInclude Include="RegInfo.h">
-      <Filter>헤더 파일\RegUtils</Filter>
-    </ClInclude>
     <ClInclude Include="ReserveDelete.h">
       <Filter>헤더 파일\ReserveFree</Filter>
     </ClInclude>
     <ClInclude Include="ReserveCloseRegKey.h">
       <Filter>헤더 파일\ReserveFree</Filter>
+    </ClInclude>
+    <ClInclude Include="RegInfo.h">
+      <Filter>헤더 파일\RegUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="RegWatch.h">
+      <Filter>헤더 파일\Watch</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessWatch.h">
+      <Filter>헤더 파일\Watch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

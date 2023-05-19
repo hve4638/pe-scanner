@@ -90,7 +90,6 @@ namespace LogUtils {
         return *this;
     }
 
-
     ILogger& Logger::operator<<(LogLevel logLevel) {
         m_currentLogLevel = logLevel;
         return *this;
@@ -100,5 +99,11 @@ namespace LogUtils {
     ILogger& Logger::operator<<(LogDirection logDirection) {
         m_logDirection = logDirection;
         return *this;
+    }
+
+    void Logger::log(const TCHAR* logMessage, DWORD errorCode, LogLevel logLevel) {
+        *this << logLevel;
+        *this << ErrorLogInfo(logMessage, errorCode);
+        *this << NL;
     }
 }

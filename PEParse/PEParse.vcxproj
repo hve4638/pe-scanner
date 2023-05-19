@@ -135,10 +135,11 @@
     <ClCompile Include="HashMD5Utils.cpp" />
     <ClCompile Include="HashMD5Utils.h" />
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="LoggerCompatibility.cpp" />
     <ClCompile Include="Options.cpp" />
     <ClCompile Include="PETests.cpp" />
     <ClCompile Include="RegUtil.cpp" />
-    <ClCompile Include="RegUtilPrivate.cpp" />
+    <ClCompile Include="RegWatch.cpp" />
     <ClCompile Include="ReserveCloseRegKey.cpp" />
     <ClCompile Include="RunnableLambda.cpp" />
     <ClCompile Include="main.cpp" />
@@ -168,6 +169,8 @@
     <ClInclude Include="ICommandLineParser.h" />
     <ClInclude Include="IHashUtils.h" />
     <ClInclude Include="IOptions.h" />
+    <ClInclude Include="ProcessWatch.h" />
+    <ClInclude Include="RegWatch.h" />
     <ClInclude Include="IRunnableBasic.h" />
     <ClInclude Include="ILogger.h" />
     <ClInclude Include="IPEParser.h" />
