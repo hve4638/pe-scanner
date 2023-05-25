@@ -2,7 +2,9 @@
 
 #include "typedef.h"
 #include "Logger.h"
+#include "RegInfo.h"
 using namespace LogUtils;
+using namespace RegInfo;
 
 namespace WatchUtils {
     class CProcessWatch {
