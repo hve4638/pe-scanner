@@ -13,21 +13,249 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\Common">
+      <UniqueIdentifier>{d95ba5de-60ac-4082-bade-9c122550e06e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Common\Logger">
+      <UniqueIdentifier>{9db8629e-903d-4c78-8b2f-1d5deec344c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Logger">
+      <UniqueIdentifier>{d5a6e60d-f512-48c6-8686-a6a4cb58b263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Common\PEParser">
+      <UniqueIdentifier>{55917d64-a458-48d9-8df7-ce2f0f4eeda7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\PEParser">
+      <UniqueIdentifier>{0a1b5f4d-1dad-4a75-81f0-96cf620af09f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Logger">
+      <UniqueIdentifier>{b3f2d895-210d-4e0a-b6ac-12b29d1be3e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\PEParesr">
+      <UniqueIdentifier>{890acf09-deb0-41d7-8cb2-f948ffab3308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\HashUtils">
+      <UniqueIdentifier>{cb47e268-52cf-4ad9-b2ae-c30392557146}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Utils">
+      <UniqueIdentifier>{74427058-89dc-4e66-af84-6ad4218359ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Utils">
+      <UniqueIdentifier>{533a0f8c-030b-42ce-b2f8-f38e12c68c14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\HashUtils">
+      <UniqueIdentifier>{e631c4df-a303-4ded-9776-09d54f6ea499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\PEReader">
+      <UniqueIdentifier>{7bb57e12-6a4d-410c-91ba-5fdcd8332380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\PEPrinter">
+      <UniqueIdentifier>{c6591a46-7ed2-4c4a-9108-65651ddcc4e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\FileSearch">
+      <UniqueIdentifier>{14379b5b-3142-444c-8867-e24977b27f9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Watch">
+      <UniqueIdentifier>{6b2cd5c4-c927-4e7f-a506-67a7f63f750b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Watch">
+      <UniqueIdentifier>{167a5930-1523-4fc7-8078-02aaa9dd486f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\FileSearch">
+      <UniqueIdentifier>{80b39d91-1805-46c7-aca6-6e26c441e4d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Common\FileSearch">
+      <UniqueIdentifier>{8b38fdb8-a096-4173-b148-a80fa666e82a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Common\IPC">
+      <UniqueIdentifier>{eb428afb-4fdd-45a2-b5d6-eee4a5af77bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Common\Watch">
+      <UniqueIdentifier>{60e813a0-d167-46b8-84e8-fca76305f541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\IPC">
+      <UniqueIdentifier>{a6e6de09-a66b-4f72-81d2-90e9302e7f85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="..\SharedCode\Common\typedef.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\NL.h">
+      <Filter>헤더 파일\Common\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\ILogInfo.h">
+      <Filter>헤더 파일\Common\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\LogDirection.h">
+      <Filter>헤더 파일\Common\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\LogLevel.h">
+      <Filter>헤더 파일\Common\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="ILogger.h">
+      <Filter>헤더 파일\Common\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IPEParser.h">
+      <Filter>헤더 파일\Common\PEParser</Filter>
+    </ClInclude>
+    <ClInclude Include="IPEReader.h">
+      <Filter>헤더 파일\PEParser</Filter>
+    </ClInclude>
+    <ClInclude Include="PEParser.h">
+      <Filter>헤더 파일\PEParser</Filter>
+    </ClInclude>
+    <ClInclude Include="PEFileReader.h">
+      <Filter>헤더 파일\PEParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>헤더 파일\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeLogInfo.h">
+      <Filter>헤더 파일\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="PEProcessReader.h">
+      <Filter>헤더 파일\PEParser</Filter>
+    </ClInclude>
+    <ClInclude Include="HashMD5Utils.h">
+      <Filter>헤더 파일\HashUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="PEUtils.h">
+      <Filter>헤더 파일\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ReserveCall.h">
+      <Filter>헤더 파일\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IPEPrinter.h">
+      <Filter>헤더 파일\Common\PEParser</Filter>
+    </ClInclude>
+    <ClInclude Include="PEPrinter.h">
+      <Filter>헤더 파일\PEParser</Filter>
+    </ClInclude>
+    <ClInclude Include="PEScan.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="api.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\PEElement.h">
+      <Filter>헤더 파일\Common\PEParser</Filter>
+    </ClInclude>
+    <ClInclude Include="ExceptionLogInfo.h">
+      <Filter>헤더 파일\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="RegWatch.h">
+      <Filter>헤더 파일\Watch</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSearch.h">
+      <Filter>헤더 파일\FileSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcWatch.h">
+      <Filter>헤더 파일\Watch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Loader\PEScanExport.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="IPCUtil.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IFileSearch.h">
+      <Filter>헤더 파일\Common\FileSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IIPCUtil.h">
+      <Filter>헤더 파일\Common\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IPCTypedef.h">
+      <Filter>헤더 파일\Common\IPC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IFileWatch.h">
+      <Filter>헤더 파일\Common\Watch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IProcWatch.h">
+      <Filter>헤더 파일\Common\Watch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IRegWatch.h">
+      <Filter>헤더 파일\Common\Watch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\ProcTypedef.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\RegTypedef.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\FileTypedef.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="FileWatch.h">
+      <Filter>헤더 파일\Watch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\PEReaderTypedef.h">
+      <Filter>헤더 파일\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="CodeLogInfo.cpp">
+      <Filter>소스 파일\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>소스 파일\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="PEScan.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PEParser.cpp">
+      <Filter>소스 파일\PEParesr</Filter>
+    </ClCompile>
+    <ClCompile Include="PEParserPrivate.cpp">
+      <Filter>소스 파일\PEParesr</Filter>
+    </ClCompile>
+    <ClCompile Include="PEParserParse.cpp">
+      <Filter>소스 파일\PEParesr</Filter>
+    </ClCompile>
+    <ClCompile Include="PEUtils.cpp">
+      <Filter>소스 파일\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ReserveCall.cpp">
+      <Filter>소스 파일\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="HashMD5Utils.cpp">
+      <Filter>소스 파일\HashUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="PEFileReader.cpp">
+      <Filter>소스 파일\PEReader</Filter>
+    </ClCompile>
+    <ClCompile Include="PEProcessReader.cpp">
+      <Filter>소스 파일\PEReader</Filter>
+    </ClCompile>
+    <ClCompile Include="PEPrinter.cpp">
+      <Filter>소스 파일\PEPrinter</Filter>
+    </ClCompile>
+    <ClCompile Include="PEPrinterPrivate.cpp">
+      <Filter>소스 파일\PEPrinter</Filter>
+    </ClCompile>
+    <ClCompile Include="ExceptionLogInfo.cpp">
+      <Filter>소스 파일\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcWatch.cpp">
+      <Filter>소스 파일\Watch</Filter>
+    </ClCompile>
+    <ClCompile Include="RegWatch.cpp">
+      <Filter>소스 파일\Watch</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSearch.cpp">
+      <Filter>소스 파일\FileSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="FileWatch.cpp">
+      <Filter>소스 파일\Watch</Filter>
+    </ClCompile>
+    <ClCompile Include="IPCUtils.cpp">
+      <Filter>소스 파일\IPC</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

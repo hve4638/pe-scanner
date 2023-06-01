@@ -1,6 +1,6 @@
 #pragma once
 
-namespace LogUtils {
+namespace PEScan {
     enum class LogDirection {
         DEBUGVIEW,
         CONSOLE

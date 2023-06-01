@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Common">
+      <UniqueIdentifier>{53689d4e-2e0d-4fe5-8a33-8cc0716ea297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\CmdLine">
+      <UniqueIdentifier>{7a19c9e5-8717-413a-bae7-2b9b0c950dc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Args">
+      <UniqueIdentifier>{067ec227-8b17-460d-a8e7-3ff28d79c88b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Args">
+      <UniqueIdentifier>{159bd646-2a77-48f6-bce1-c075bfea92f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\CmdLine">
+      <UniqueIdentifier>{e8209391-5326-4850-86b8-a386ac67432c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Runnable">
+      <UniqueIdentifier>{5ca49ac5-1f1f-4f38-bf6c-b9d208e8f399}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Runnable">
+      <UniqueIdentifier>{bc9ebfe4-2617-4bd6-a4e4-f0a87acb17d4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\ArgsAdditional.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IArgs.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\ICmdLineParser.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\ICmdNode.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\ICmdOptions.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\IRunnable.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Common\typedef.h">
+      <Filter>헤더 파일\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdLineParser.h">
+      <Filter>헤더 파일\CmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdNode.h">
+      <Filter>헤더 파일\CmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="Runnable.h">
+      <Filter>헤더 파일\CmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="CharArgs.h">
+      <Filter>헤더 파일\Args</Filter>
+    </ClInclude>
+    <ClInclude Include="StringArgs.h">
+      <Filter>헤더 파일\Args</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdLineUtils.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="api.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdOptions.h">
+      <Filter>헤더 파일\Runnable</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CharArgs.cpp">
+      <Filter>소스 파일\Args</Filter>
+    </ClCompile>
+    <ClCompile Include="StringArgs.cpp">
+      <Filter>소스 파일\Args</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdLineUtils.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdLineParser.cpp">
+      <Filter>소스 파일\CmdLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Runnable.cpp">
+      <Filter>소스 파일\CmdLine</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdOptions.cpp">
+      <Filter>소스 파일\Runnable</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdNode.cpp">
+      <Filter>소스 파일\CmdLine</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

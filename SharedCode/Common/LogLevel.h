@@ -8,7 +8,7 @@
 #define LOG_LEVEL_ERROR LogLevel::ERR
 #define LOG_LEVEL_FATAL LogLevel::FATAL
 
-namespace LogUtils {
+namespace PEScan {
     enum class LogLevel {
         DISABLE = 0x0,
         ALL = 0x1,

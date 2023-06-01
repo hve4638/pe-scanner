@@ -13,17 +13,44 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Loader">
+      <UniqueIdentifier>{3be26b9c-320f-4d47-8e6a-d7630051d4e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Loader">
+      <UniqueIdentifier>{36afddb2-9533-4787-a448-195ff3b5d536}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="loaddll.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SharedCode\Loader\PEScan.cpp">
+      <Filter>소스 파일\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="watch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ScanEngine.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\SharedCode\Common\typedef.h">
+    <ClInclude Include="loaddll.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\SharedCode\Common\test.h">
+    <ClInclude Include="..\SharedCode\Loader\PEScan.h">
+      <Filter>헤더 파일\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SharedCode\Loader\PEScanExport.h">
+      <Filter>헤더 파일\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanEngine.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ScanTypedef.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,13 +15,21 @@ using namespace std;
 #define OutputDebugStringT OutputDebugStringA
 #endif
 
+#define DLL_PROC_LOAD(var_name, load_name, load_type) ((var_name = (load_type)GetProcAddress(m_module, load_name)) != NULL)
+#define DLL_PROC_CHECK(var_name, load_proc) if (var_name == NULL && !load_proc()) error()
+
+#define NL _T("\n")
 #define IMAGE_PDB_SIGNATURE 0x53445352 // "RSDS"
+
+#define BITFLAG_CHECK(X, B) (((X) & (B)) == (B))
 
 #define MD5_LENGTH 16
 #define CHAR_IS_TCHAR (sizeof(TCHAR) == sizeof(char))
 #define CHECK_FLAG(x, flag) ((x) & (flag) == (flag))
 typedef ULONGLONG QWORD;
 typedef basic_string<TCHAR> tstring;
+
+typedef vector<BYTE> BinaryData;
 
 typedef struct _LoadedDllInfo {
     tstring Path;

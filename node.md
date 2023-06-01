@@ -3,10 +3,6 @@
 - Scanner 구현부와 UI 분리
 - 기능 DLL화
 
-## 세부 목표
-
-- 
-
 ## 전체 기능 목록
 
 - LogUtils
@@ -37,3 +33,16 @@
         - PEMemMapUtil
 - RegWatch : 레지스트리 모니터링
 - ScanEngine : Scanner 관련
+
+---
+
+## Common 등록용
+
+- ~~LogUtils~~
+- ~~PEParser~~
+- CMDLineUtils
+- IPCUtils
+- FileUtils
+- hashUtils
+- RegWatch
+- ScanEngine

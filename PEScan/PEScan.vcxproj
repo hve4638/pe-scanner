@@ -74,10 +74,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;PESCAN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../SharedCode;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PreprocessorDefinitions>_PESCAN_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -91,10 +93,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;PESCAN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../SharedCode;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PreprocessorDefinitions>_PESCAN_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -108,10 +112,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;PESCAN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../SharedCode;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PreprocessorDefinitions>_PESCAN_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -125,10 +131,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;PESCAN_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../SharedCode;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PreprocessorDefinitions>_PESCAN_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -139,17 +147,67 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\SharedCode\Common\FileTypedef.h" />
+    <ClInclude Include="..\SharedCode\Common\IFileSearch.h" />
+    <ClInclude Include="..\SharedCode\Common\IFileWatch.h" />
+    <ClInclude Include="..\SharedCode\Common\IIPCUtil.h" />
+    <ClInclude Include="..\SharedCode\Common\ILogInfo.h" />
+    <ClInclude Include="..\SharedCode\Common\IPCTypedef.h" />
+    <ClInclude Include="..\SharedCode\Common\IPEParser.h" />
+    <ClInclude Include="..\SharedCode\Common\IPEPrinter.h" />
+    <ClInclude Include="..\SharedCode\Common\IProcWatch.h" />
+    <ClInclude Include="..\SharedCode\Common\IRegWatch.h" />
+    <ClInclude Include="..\SharedCode\Common\LogDirection.h" />
+    <ClInclude Include="..\SharedCode\Common\LogLevel.h" />
+    <ClInclude Include="..\SharedCode\Common\NL.h" />
+    <ClInclude Include="..\SharedCode\Common\PEElement.h" />
+    <ClInclude Include="..\SharedCode\Common\PEReaderTypedef.h" />
+    <ClInclude Include="..\SharedCode\Common\ProcTypedef.h" />
+    <ClInclude Include="..\SharedCode\Common\RegTypedef.h" />
+    <ClInclude Include="..\SharedCode\Common\typedef.h" />
+    <ClInclude Include="..\SharedCode\Loader\PEScanExport.h" />
+    <ClInclude Include="api.h" />
+    <ClInclude Include="CodeLogInfo.h" />
+    <ClInclude Include="ExceptionLogInfo.h" />
+    <ClInclude Include="FileSearch.h" />
+    <ClInclude Include="FileWatch.h" />
+    <ClInclude Include="HashMD5Utils.h" />
+    <ClInclude Include="IPCUtil.h" />
+    <ClInclude Include="IPEReader.h" />
+    <ClInclude Include="PEFileReader.h" />
+    <ClInclude Include="PEParser.h" />
+    <ClInclude Include="PEPrinter.h" />
+    <ClInclude Include="PEProcessReader.h" />
+    <ClInclude Include="PEScan.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="ILogger.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="PEUtils.h" />
+    <ClInclude Include="ProcWatch.h" />
+    <ClInclude Include="RegWatch.h" />
+    <ClInclude Include="ReserveCall.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CodeLogInfo.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="ExceptionLogInfo.cpp" />
+    <ClCompile Include="FileSearch.cpp" />
+    <ClCompile Include="FileWatch.cpp" />
+    <ClCompile Include="HashMD5Utils.cpp" />
+    <ClCompile Include="IPCUtils.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="PEFileReader.cpp" />
+    <ClCompile Include="PEParser.cpp" />
+    <ClCompile Include="PEParserParse.cpp" />
+    <ClCompile Include="PEParserPrivate.cpp" />
+    <ClCompile Include="PEPrinter.cpp" />
+    <ClCompile Include="PEPrinterPrivate.cpp" />
+    <ClCompile Include="PEProcessReader.cpp" />
+    <ClCompile Include="PEScan.cpp" />
+    <ClCompile Include="PEUtils.cpp" />
+    <ClCompile Include="ProcWatch.cpp" />
+    <ClCompile Include="RegWatch.cpp" />
+    <ClCompile Include="ReserveCall.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
