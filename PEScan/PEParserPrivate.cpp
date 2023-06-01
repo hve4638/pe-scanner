@@ -9,15 +9,15 @@ using namespace std;
 using namespace PEUtils;
 
 namespace PEScan {
-    tstring PEParser::getString(const char* srcString, size_t srcLength = IMAGE_SIZEOF_SHORT_NAME) {
-        shared_ptr<BYTE> byteBuffer(new BYTE[srcLength + 1]);
-        memcpy_s(byteBuffer.get(), srcLength, srcString, srcLength);
+    tstring PEParser::getString(const char* srcString, size_t __legacyArgs = IMAGE_SIZEOF_SHORT_NAME) { 
+        BYTE byteBuffer[IMAGE_SIZEOF_SHORT_NAME + 1] = { 0, };
+        memcpy_s(byteBuffer, IMAGE_SIZEOF_SHORT_NAME, srcString, IMAGE_SIZEOF_SHORT_NAME);
 
         if (CHAR_IS_TCHAR) {
-            return reinterpret_cast<const TCHAR*>(byteBuffer.get());
+            return reinterpret_cast<const TCHAR*>(byteBuffer);
         }
         else {
-            return convertToUTF8(byteBuffer.get(), srcLength);
+            return convertToUTF8(byteBuffer, IMAGE_SIZEOF_SHORT_NAME);
         }
     }
 

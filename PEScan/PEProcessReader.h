@@ -19,6 +19,7 @@ namespace PEScan {
 
     private:
         BOOL parseImageBaseAddress(void);
+        BOOL readData(ULONGLONG rva, LPVOID bufferAddress, DWORD bufferSize, DWORD& readLength, BOOL absoluteOffset = FALSE);
 
     public:
         PEProcessReader();
@@ -26,7 +27,7 @@ namespace PEScan {
         void close(void) override;
         BOOL open(DWORD pid, const TCHAR* pfilePath, BOOL checkPE = FALSE) override;
         tstring getPEString(ULONGLONG rva, BOOL addBaseAddress = TRUE) override;
-        BOOL readData(ULONGLONG rva, LPVOID bufferAddress, DWORD bufferSize, DWORD& readLength, BOOL absoluteOffset = FALSE) override;
+        DWORD readData(ULONGLONG rva, LPVOID bufferAddress, DWORD bufferSize, BOOL absoluteOffset = FALSE) override;
         LPVOID getBaseAddress(void) override;
         HANDLE getHandle(void) override;
         tstring getFilePath(void) override;

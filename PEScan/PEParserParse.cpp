@@ -166,7 +166,7 @@ namespace PEScan {
                 DWORD addressOfIAT = functionAddresses[i];       // Ordinal로만 Export하는 함수
                 DWORD ordinal = ordinalBase + i;                 // ordinal = Base + functionAddress index(nameOrdinal)
 
-                if (nameRVA != NULL && addressOfIAT != NULL) {
+                if (nameRVA == NULL && addressOfIAT == NULL) {
                     m_logger << LogLevel::DEBUG;
                     m_logger << CodeLogInfo(_T("Export address is invalid > 0x{:x}, 0x{:x}")) << NL;
                 }

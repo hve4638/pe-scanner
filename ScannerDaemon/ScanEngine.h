@@ -7,7 +7,7 @@
 using namespace std;
 using namespace PEScan;
 
-class CScanEngine {
+class ScanEngine {
     shared_ptr<ILogger> m_logger;
     shared_ptr<IPEParser> m_peParser;
     shared_ptr<IFileSearch> m_fileSearch;
@@ -19,8 +19,8 @@ private:
     BOOL scanPE(ScanFileType scnaFileType, tstring& detectName);
 
 public:
-    CScanEngine();
-    ~CScanEngine();
+    ScanEngine();
+    ~ScanEngine();
     void Initialize(void);
     BOOL scanFile(const tstring filePath, tstring& detectName, ScanFileType scnaFileType = SCAN_TYPE_FILE);
     BOOL scanProcess(const DWORD pid, tstring& detectName, ScanFileType scnaFileType = SCAN_TYPE_FILE);

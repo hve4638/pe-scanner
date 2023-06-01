@@ -42,10 +42,10 @@ namespace PEScan {
 
 
         shared_ptr<PEStructure> getPEStructure() override;
-        BOOL tryGetSectionHash(const TCHAR* sectionName, tstring& hash);
-        BOOL tryGetEntryPointSectionHash(tstring& hash);
-        BOOL tryGetPDBFilePathHash(tstring& hash);
-        BOOL tryGetCodeSectionHash(tstring& hash);
+        BOOL tryGetSectionHash(const TCHAR* sectionName, tstring& hash) override;
+        BOOL tryGetEntryPointSectionHash(tstring& hash) override;
+        BOOL tryGetPDBFilePathHash(tstring& hash) override;
+        BOOL tryGetCodeSectionHash(tstring& hash) override;
     };
 }
 

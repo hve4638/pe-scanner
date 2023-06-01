@@ -8,9 +8,11 @@
 using namespace std;
 
 #if defined(UNICODE) || defined(_UNICODE)
+#define tstring wstring
 #define tcout wcout
 #define OutputDebugStringT OutputDebugStringW
 #else
+#define tstring string
 #define tcout cout
 #define OutputDebugStringT OutputDebugStringA
 #endif
@@ -27,7 +29,6 @@ using namespace std;
 #define CHAR_IS_TCHAR (sizeof(TCHAR) == sizeof(char))
 #define CHECK_FLAG(x, flag) ((x) & (flag) == (flag))
 typedef ULONGLONG QWORD;
-typedef basic_string<TCHAR> tstring;
 
 typedef vector<BYTE> BinaryData;
 

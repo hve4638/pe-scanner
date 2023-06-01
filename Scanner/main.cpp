@@ -21,7 +21,8 @@ int main() {
     //testProcWatch(peScan);
     //testFileWatch(peScan);
     //auto pa = _T("D:\\Project\\Git\\HEMacro\\x64\\Debug");
-    auto pa = _T("D:\\Project\\Git\\HEMacro\\x64\\Debug\\HEMacro.dll");
+    auto pa = _T("E:\\230531\\HEMacro\\Debug\\HEMacro.dll");
+    //auto pa = _T("D:\\Project\\Git\\HEMacro\\x64\\Debug\\HEMacro.dll");
     auto parser = peScan.PEParser();
     auto printer = peScan.PEPrinter();
     parser->parsePE(0, pa, PE_PARSE_ALL);

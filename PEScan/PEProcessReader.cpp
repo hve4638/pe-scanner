@@ -230,6 +230,17 @@ namespace PEScan {
         }
         return result;
     };
+    
+    DWORD PEProcessReader::readData(ULONGLONG rva, LPVOID bufferAddress, DWORD bufferSize, BOOL absoluteOffset)
+    {
+        DWORD readLength;
+        if (readData(rva, bufferAddress, bufferSize, readLength, absoluteOffset)) {
+            return readLength;
+        }
+        else {
+            return -1;
+        }
+    };
 
     BOOL PEProcessReader::createProcess(tstring filePath)
     {

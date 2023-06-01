@@ -53,12 +53,14 @@ namespace PEUtils {
 
     tstring convertToUTF8(BYTE* byteBuffer, size_t srcLength) {
         tstring readString;
-        shared_ptr<TCHAR> byteBufferW(new TCHAR[srcLength + 1]);
-
+        // 필요한 문자열 길이를 먼저 얻음
         int bufferLen = MultiByteToWideChar(CP_UTF8, 0, reinterpret_cast<LPCCH>(byteBuffer), -1, NULL, 0);
-        MultiByteToWideChar(CP_UTF8, 0, reinterpret_cast<LPCCH>(byteBuffer), -1, byteBufferW.get(), bufferLen);
-        readString = byteBufferW.get();
-
+        // 필요한 문자열 길이 만큼 메모리 할당
+        TCHAR* readBuffer = new TCHAR[bufferLen];
+        // readString 메모리 주소를 리턴하는 .data()를 이용하여 readString 메모리에 변환된 문자열 저장
+        MultiByteToWideChar(CP_UTF8, 0, reinterpret_cast<LPCCH>(byteBuffer), -1, readBuffer, bufferLen);
+        readString = readBuffer;
+        delete[] readBuffer;
         return readString;
     }
 

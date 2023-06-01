@@ -1,6 +1,9 @@
+#include <format>
 #include "Loader/PEScan.h"
+#include "ScanEngine.h"
 
 using namespace PEScan;
+ScanEngine scanEngine;
 
 void fileWatchThread(shared_ptr<IFileWatch> fileWatch) {
     FileInfo fileInfo;
@@ -20,48 +23,42 @@ void fileWatchThread(shared_ptr<IFileWatch> fileWatch) {
     } while (fileWatch->isAlive());
 };
 
-void processWatchThread(CProcessWatch* processWatch)
+void processWatchThread(shared_ptr<IProcWatch> processWatch)
 {
-    CScanEngine scanEngine;
+    ScanEngine scanEngine;
     ProcessInfo processInfo;
     tstring detectName;
 
-    if (processWatch != NULL)
+    do
     {
-        do
+        if (processWatch->getNextInfo(processInfo))
         {
-            if (processWatch->getNextInfo(processInfo))
+            if (scanEngine.scanFile(get<2>(processInfo), detectName, SCAN_TYPE_FILE))
             {
-                if (scanEngine.scanFile(get<2>(processInfo), detectName, SCAN_TYPE_FILE))
-                {
-                    tcout << endl << format(_T("{:s} detected!\n{:s}"), detectName, get<2>(processInfo)) << endl;
-                }
+                tcout << endl << format(_T("{:s} detected!\n{:s}"), detectName, get<2>(processInfo)) << endl;
             }
-            // 1000 ns == 0.001 ms
-            this_thread::sleep_for(std::chrono::nanoseconds(1000));
-        } while (processWatch->isAlive());
-    }
+        }
+        // 1000 ns == 0.001 ms
+        this_thread::sleep_for(std::chrono::nanoseconds(1000));
+    } while (processWatch->isAlive());
 };
 
-void regWatchThread(CRegWatch* regWatch)
+void regWatchThread(shared_ptr<IRegWatch> regWatch)
 {
-    CScanEngine scanEngine;
+    ScanEngine scanEngine;
     RegFileInfo regFileInfo;
     tstring detectName;
 
-    if (regWatch != NULL)
+    do
     {
-        do
+        if (regWatch->getNextInfo(regFileInfo))
         {
-            if (regWatch->getNextInfo(regFileInfo))
+            if (scanEngine.scanFile(get<0>(regFileInfo), detectName, SCAN_TYPE_FILE))
             {
-                if (scanEngine.scanFile(get<0>(regFileInfo), detectName, SCAN_TYPE_FILE))
-                {
-                    tcout << endl << format(_T("{:s} detected!\n{:s}"), detectName, get<0>(regFileInfo)) << endl;
-                }
+                tcout << endl << format(_T("{:s} detected!\n{:s}"), detectName, get<0>(regFileInfo)) << endl;
             }
-            // 1000 ns == 0.001 ms
-            this_thread::sleep_for(std::chrono::nanoseconds(1000));
-        } while (regWatch->isAlive());
-    }
+        }
+        // 1000 ns == 0.001 ms
+        this_thread::sleep_for(std::chrono::nanoseconds(1000));
+    } while (regWatch->isAlive());
 };
