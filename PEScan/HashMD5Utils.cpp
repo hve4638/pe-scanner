@@ -4,7 +4,7 @@
 
 namespace PEScan {
     HashMD5Utils::HashMD5Utils() {
-        open();
+
     }
     HashMD5Utils::~HashMD5Utils() {
         close();
@@ -33,44 +33,54 @@ namespace PEScan {
         return TRUE;
     }
 
-    BOOL HashMD5Utils::tryGetMD5(const BYTE* data, size_t len, BYTE* outputBytes) {
-        return tryGetMD5ToBytes(data, len, outputBytes);
-    }
-    BOOL HashMD5Utils::tryGetMD5(const BYTE* data, size_t len, tstring& outputString) {
-        return tryGetMD5ToString(data, len, outputString);
-    }
+    BOOL HashMD5Utils::compareBytes(const BYTE* srcBytes, DWORD srcLength, const BYTE* destBytes, DWORD destLength)
+    {
+        return ((srcLength == destLength) && equal(srcBytes, srcBytes + srcLength, destBytes));
+    };
+    BOOL HashMD5Utils::calculateHash(const BYTE* srcBytes, DWORD srcLength)
+    {
+        BOOL result = FALSE;
 
-    BOOL HashMD5Utils::tryGetMD5ToBytes(const BYTE* data, size_t len, BYTE* hash) {
-        DWORD hashLen = 16;
-        if (!CryptHashData(m_hash, data, (DWORD)len, 0)) {
-            CodeLogInfo logInfo = { _T("CryptHashData failed.") };
-            m_logger << LogLevel::ERR;
-            m_logger << &logInfo << NL;
-            return FALSE;
+        // Get the hash from the bytes
+        if (CryptHashData(m_hash, srcBytes, srcLength, 0) != 0)
+        {
+            result = TRUE;
         }
-        else if (!CryptGetHashParam(m_hash, HP_HASHVAL, hash, &hashLen, 0)) {
-            CodeLogInfo logInfo = { _T("CryptGetHashParam failed.") };
-            m_logger << LogLevel::ERR;
-            m_logger << &logInfo << NL;
-            return FALSE;
+        else
+        {
+            m_logger.log(_T("CryptHashData fail"), GetLastError(), LOG_LEVEL_ERROR);
         }
-        else {
-            return TRUE;
-        }
-    }
+        return result;
+    };
 
-    BOOL HashMD5Utils::tryGetMD5ToString(const BYTE* data, size_t len, tstring& hash) {
-        BYTE buffer[MD5_LENGTH] = { 0, };
-        DWORD md5Length = MD5_LENGTH;
+    BOOL HashMD5Utils::getMD5Hash(BYTE* md5Bytes, DWORD* md5BufferLength)
+    {
+        BOOL result = FALSE;
 
-        vector<BYTE> bytes(len);
-        if (!tryGetMD5ToBytes(data, len, buffer)) {
-            return FALSE;
+        // Get the hash size
+        if ((m_hash != NULL) && (CryptGetHashParam(m_hash, HP_HASHSIZE, (BYTE*)&m_hashSize, &m_hashSizeBufferLength, 0) != 0))
+        {
+            // Check buufer size
+            if (*md5BufferLength >= m_hashSize)
+            {
+                // Get the hash value
+                if (CryptGetHashParam(m_hash, HP_HASHVAL, md5Bytes, md5BufferLength, 0))
+                {
+                    result = TRUE;
+                }
+            }
         }
-        else {
-            return bytesToString(buffer, md5Length, hash);
-        }
-    }
+        return result;
+    };
+
+    BOOL HashMD5Utils::getMD5Hash(tstring& md5String)
+    {
+        BYTE md5HashBytes[MD5_LENGTH] = { 0, };
+        DWORD md5BufferLength = MD5_LENGTH;
+
+        return (getMD5Hash(md5HashBytes, &md5BufferLength) && bytesToString(md5HashBytes, MD5_LENGTH, md5String));
+    };
+
 
     BOOL HashMD5Utils::bytesToString(const BYTE* hashBytes, DWORD srcLength, tstring& outString) {
         outString = _T("");

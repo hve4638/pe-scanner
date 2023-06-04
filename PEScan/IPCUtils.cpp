@@ -155,7 +155,7 @@ namespace PEScan {
 
         if ((m_sharedMemHandle != NULL) && (m_mutexHandle != NULL))
         {
-            waitResult = WaitForSingleObject(m_mutexHandle, INFINITE);
+            waitResult =    (m_mutexHandle, INFINITE);
             if (waitResult == WAIT_OBJECT_0)
             {
                 // 메시지 전송

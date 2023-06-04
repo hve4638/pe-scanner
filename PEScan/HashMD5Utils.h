@@ -6,16 +6,19 @@ namespace PEScan {
         HCRYPTPROV m_prov = NULL;
         HCRYPTHASH m_hash = NULL;
         Logger m_logger = { LogDirection::DEBUGVIEW, LogLevel::DEBUG };
+        DWORD m_hashSize = 0;
+        DWORD m_hashSizeBufferLength = sizeof(DWORD);
 
         BOOL bytesToString(const BYTE* hashBytes, DWORD srcLength, tstring& outString);
-        BOOL open();
-        BOOL close();
     public:
         HashMD5Utils();
         ~HashMD5Utils();
-        BOOL tryGetMD5ToBytes(const BYTE* data, size_t len, BYTE* hashBytes);
-        BOOL tryGetMD5ToString(const BYTE* data, size_t len, tstring& hashString);
-        BOOL tryGetMD5(const BYTE* data, size_t len, BYTE* hashBytes);
-        BOOL tryGetMD5(const BYTE* data, size_t len, tstring& hashString);
+
+        BOOL open(void);
+        BOOL close(void);
+        BOOL compareBytes(const BYTE* srcBytes, DWORD srcLength, const BYTE* destBytes, DWORD destLength);
+        BOOL calculateHash(const BYTE* srcBytes, DWORD srcLength);
+        BOOL getMD5Hash(BYTE* md5Bytes, DWORD* md5BufferLength);
+        BOOL getMD5Hash(tstring& md5String);
     };
 }

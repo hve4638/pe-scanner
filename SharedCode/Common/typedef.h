@@ -23,6 +23,7 @@ using namespace std;
 #define NL _T("\n")
 #define IMAGE_PDB_SIGNATURE 0x53445352 // "RSDS"
 
+#define IPC_NAME _T("AICS_IPC")
 #define BITFLAG_CHECK(X, B) (((X) & (B)) == (B))
 
 #define MD5_LENGTH 16

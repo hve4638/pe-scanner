@@ -139,6 +139,7 @@
     <ClCompile Include="..\SharedCode\Loader\PEScan.cpp" />
     <ClCompile Include="loaddll.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scan.cpp" />
     <ClCompile Include="testdll.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,7 @@
     <ClInclude Include="..\SharedCode\Loader\PEScan.h" />
     <ClInclude Include="..\SharedCode\Loader\PEScanExport.h" />
     <ClInclude Include="loaddll.h" />
+    <ClInclude Include="Scan.h" />
     <ClInclude Include="testdll.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,14 +2,19 @@
 #include "Common/IPEParser.h"
 #include "IPEReader.h"
 #include "Logger.h"
+#include "HashMD5Utils.h"
 
 namespace PEScan {
     class PEParser : public IPEParser {
         shared_ptr<PEStructure> m_peStruct;
         shared_ptr<IPEReader> m_peReader;
         Logger m_logger = { LogDirection::DEBUGVIEW, LogLevel::ALL };
+        HashMD5Utils m_hash; 
 
+        DWORD m_peSize = 0;
         tstring getString(const char* srcString, size_t srcLength);
+
+        // PE의 각 부분을 읽어와 파싱하는 
         BOOL parseDosHeader();
         BOOL parseNtHeader();
         BOOL parseSectionHeader();
@@ -31,7 +36,8 @@ namespace PEScan {
         BOOL findSectionAsName(const TCHAR* sectionName, SectionInfo& info);
         BOOL findSectionAsOffset(DWORD rva, SectionInfo& info);
 
-        BOOL tryMakeHashMD5(DWORD, SIZE_T, tstring&);
+        BOOL tryMakeHashAsRVA(DWORD, SIZE_T, tstring&);
+        BOOL tryMakeHashAsBytes(const BYTE*, SIZE_T, tstring&);
     public:
         PEParser();
         ~PEParser() override;
@@ -46,6 +52,7 @@ namespace PEScan {
         BOOL tryGetEntryPointSectionHash(tstring& hash) override;
         BOOL tryGetPDBFilePathHash(tstring& hash) override;
         BOOL tryGetCodeSectionHash(tstring& hash) override;
+        BOOL tryGetPEHash(tstring& hash) override;
     };
 }
 

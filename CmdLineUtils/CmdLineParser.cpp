@@ -2,6 +2,7 @@
 #include "Runnable.h"
 #include "Common/ArgsAdditional.h"
 #include "StringArgs.h"
+#include "CharArgs.h"
 #include "CmdLineParser.h"
 #include "CmdNode.h"
 
@@ -41,6 +42,10 @@ namespace CmdLineUtils {
 
     void CmdLineParser::run(tstring str) {
         run(StringArgs::make(str));
+    }
+
+    void CmdLineParser::run(int args, TCHAR* argv[]) {
+        run(make_shared<CharArgs>(args, argv));
     }
 
     void CmdLineParser::add(tstring cmd, CmdCallback callback, tstring options, tstring booleanOptions) {

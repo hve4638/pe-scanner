@@ -1,11 +1,8 @@
 #pragma once
-
 #include "ScanEngine.h"
 #include <format>
 
-using namespace std;
-
-using namespace PEScan;
+PEScanLoader* ScanEngine::peScan = NULL;
 
 ScanEngine::ScanEngine()
 {
@@ -31,6 +28,15 @@ void ScanEngine::Initialize(void)
     {
         loadMalwarePattern();
     }
+
+    if (peScan != NULL) {
+        m_logger = peScan->Logger();
+        m_peParser = peScan->PEParser();
+        m_fileSearch = peScan->FileSearch();
+    }
+    else {
+        abort();
+    }
 };
 
 BOOL ScanEngine::scanPE(ScanFileType scnaFileType, tstring& detectName)
@@ -42,7 +48,7 @@ BOOL ScanEngine::scanPE(ScanFileType scnaFileType, tstring& detectName)
     {
     case SCAN_TYPE_FILE:
     case SCAN_TYPE_PROCESS:
-        m_peParser->getPEHash(hashValue);
+        m_peParser->tryGetPEHash(hashValue);
         break;
     case SCAN_TYPE_CODE:
         m_peParser->tryGetEntryPointSectionHash(hashValue);
@@ -69,10 +75,12 @@ BOOL ScanEngine::scanFile(const tstring filePath, tstring& detectName, ScanFileT
     if ((scnaFileType & SCAN_TYPE_PDB) == SCAN_TYPE_PDB)
     {
         peElement = static_cast<PEElement>(peElement | PE_PARSE_DEBUG);
+        
     }
-    if (m_fileUtil->getRealPath(filePath, realPath))
+    if (m_fileSearch->getRealPath(filePath, realPath))
     {
-        if (m_peParser->parsePE(NULL, realPath.c_str(), peElement, TRUE))
+        peElement = static_cast<PEElement>(peElement);
+        if (m_peParser->parsePE(NULL, realPath.c_str(), peElement))
         {
             result = scanPE(scnaFileType, detectName);
         }
@@ -88,7 +96,7 @@ BOOL ScanEngine::scanProcess(const DWORD pid, tstring& detectName, ScanFileType 
 
     if (pid > 0x4)
     {
-        if (m_peParser->parsePE(pid, NULL, PE_PARSE_HEADER, TRUE))
+        if (m_peParser->parsePE(pid, NULL, (PEElement)(PE_PARSE_HEADER)))
         {
             result = scanPE(scnaFileType, detectName);
         }

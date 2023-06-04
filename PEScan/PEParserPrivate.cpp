@@ -55,16 +55,31 @@ namespace PEScan {
         return FALSE;
     }
 
-
-    BOOL PEParser::tryMakeHashMD5(DWORD rva, SIZE_T size, tstring& hash) {
-        HashMD5Utils md5;
-        vector<BYTE> sectionData(size);
-
+    BOOL PEParser::tryMakeHashAsRVA(DWORD rva, SIZE_T size, tstring& hash) {
+        DWORD readLength = 0;
+        DWORD totalReadLength = 0;
+        BinaryData sectionData(size);
         if (m_peReader->readData(rva, sectionData.data(), size) >= 0) {
-            return md5.tryGetMD5(sectionData.data(), size, hash);
+            return tryMakeHashAsBytes(sectionData.data(), size, hash);
         }
-        else {
-            return FALSE;
+
+        return FALSE;
+    }
+
+    BOOL PEParser::tryMakeHashAsBytes(const BYTE* bytes, SIZE_T size, tstring& hash) {
+        BOOL result = FALSE;
+        if (m_hash.open()) {
+            DWORD readLength = 0;
+            DWORD totalReadLength = 0;
+            BinaryData sectionData(size);
+
+            if (m_hash.calculateHash(bytes, readLength)) {
+                result = m_hash.getMD5Hash(hash);
+            }
+
+            m_hash.close();
         }
+
+        return result;
     }
 }

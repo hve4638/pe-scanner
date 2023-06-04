@@ -11,7 +11,12 @@ namespace PEScan {
         BOOL m_detail = false;
 
     public:
-        CodeLogInfo(tstring message, DWORD errorCode = GetLastError(), const char* __fname = __builtin_FUNCTION(), const int __fline = __builtin_LINE());
+        CodeLogInfo(
+            tstring message,
+            DWORD errorCode = GetLastError(),
+            const char* __fname = __builtin_FUNCTION(),
+            const int __fline = __builtin_LINE()
+        );
         tstring message() override;
 
         CodeLogInfo& detail();
